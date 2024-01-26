@@ -22,7 +22,7 @@ const Todo = () => {
     useEffect(() =>{
      setTimeout(()=>{
       console.log(todos);
-      localStorage.setItem("todos",JSON.stringify(todos))
+      localStorage.setItem("todos",JSON.stringify(todos));
       },100)
     },[todos])
 
