@@ -23,7 +23,7 @@ const Todo = () => {
      setTimeout(()=>{
       console.log(todos);
       localStorage.setItem("todos",JSON.stringify(todos));
-      },3000)
+      },100)
     },[todos])
 
   return (
@@ -33,7 +33,7 @@ const Todo = () => {
           <input ref={inputRef} type="text" placeholder='Add Your Task' className='todo-input'/>
           <div onClick={() => {add()}} className="todo-add-btn">ADD</div>
     </div>
-       <div div className="todo-list"> 
+       <div className="todo-list"> 
        {todos.map((item,index)=> {
         return <TodoItems key={index} setTodos={setTodos} no={item.no} display={item.display} text={item.text}/>})}
     </div>

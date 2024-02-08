@@ -9,9 +9,6 @@ const TodoItems = ({no,display,text,setTodos}) => {
     let data = JSON.parse(localStorage.getItem("todos"));
     data = data.filter((todo) => todo.no!==no);
     setTodos(data);
-    // setTodos(oldTodos => {
-    //   return oldTodos.filter(todo => todo.no !== no)
-    // })
     console.log(data);
     
   }
@@ -33,26 +30,14 @@ const TodoItems = ({no,display,text,setTodos}) => {
     setTodos(data);
   }
   return (
-    <div className='todoitems'>
-      <div className={`todoitems-container ${display}`} >
-        <div
-          onClick={() => {
-            toggle(no);
-          }}
-        >
-          {display === "" ? (
-            <img src={not_tick} alt="" />
-          ) : (
-            <img src={tick} alt="" />
-          )}
-        </div>
-          <div className="todoitems-text">{text}</div>
-          <img  className="todoitems-cross-icon" onClick={()=>{deleteTodo(no)}} src={cross} alt='' />
-
-    </div>
-      
-    </div>
-  )
-}
+            <div className='todoitems'>
+            <div className={`todoitems-container  ${display}`}onClick={()=>{toggle(no)}}>
+                {display===""? <img src={not_tick} alt="" />: <img src={tick} alt="" />}
+                 <div className="todoitems-text">{text}</div>
+            </div>
+            <img  className="todoitems-cross-icon" onClick={()=>{deleteTodo(no)}} src={cross} alt='' />
+            </div>
+        )
+    }
 
 export default TodoItems
